@@ -1,0 +1,62 @@
+Options +FollowSymLinks
+
+RewriteEngine On
+
+RewriteRule ^([0-9a-zA-Z]+)$ index.php?user=$1 [L,QSA]
+
+
+RewriteRule ^create-account/(.+)?$ create-account/index.php?type=$1 [L,QSA,NE,B,PT]
+RewriteRule ^messages/(.+)?$ messages/index.php?type=$1 [L,QSA,NE,B,PT]
+RewriteRule ^updates/(.+)?$ updates/index.php?slug=$1 [L,QSA,NE,B,PT]
+
+
+
+RewriteRule ^teacher-files/view/(.+)?$ teacher-files/index.php?slug=$1 [L,QSA,NE,B,PT]
+RewriteRule ^teacher-files/category/(.+)?$ teacher-files/index.php?category=$1 [L,QSA,NE,B,PT]
+RewriteRule ^teacher-files/tag/(.+)?$ teacher-files/index.php?tag=$1 [L,QSA,NE,B,PT]
+RewriteRule ^teacher-files/date/(.+)?$ teacher-files/index.php?date=$1 [L,QSA,NE,B,PT]
+RewriteRule ^teacher-files/teacher/(.+)?$ teacher-files/index.php?owner=$1 [L,QSA,NE,B,PT]
+
+RewriteRule ^articles/read/(.+)?$ articles/index.php?slug=$1 [L,QSA,NE,B,PT]
+RewriteRule ^articles/category/(.+)?$ articles/index.php?category=$1 [L,QSA,NE,B,PT]
+RewriteRule ^articles/tag/(.+)?$ articles/index.php?tag=$1 [L,QSA,NE,B,PT]
+RewriteRule ^articles/date/(.+)?$ articles/index.php?date=$1 [L,QSA,NE,B,PT]
+RewriteRule ^articles/writer/(.+)?$ articles/index.php?owner=$1 [L,QSA,NE,B,PT]
+
+
+RewriteRule ^researches/view/(.+)?$ researches/index.php?slug=$1 [L,QSA,NE,B,PT]
+RewriteRule ^researches/category/(.+)?$ researches/index.php?category=$1 [L,QSA,NE,B,PT]
+RewriteRule ^researches/tag/(.+)?$ researches/index.php?tag=$1 [L,QSA,NE,B,PT]
+RewriteRule ^researches/date/(.+)?$ researches/index.php?date=$1 [L,QSA,NE,B,PT]
+RewriteRule ^researches/school/(.+)?$ researches/index.php?owner=$1 [L,QSA,NE,B,PT]
+
+
+RewriteRule ^tools/category/(.+)?$ tools/index.php?category=$1 [L,QSA,NE,B,PT]
+RewriteRule ^tools/tag/(.+)?$ tools/index.php?tag=$1 [L,QSA,NE,B,PT]
+RewriteRule ^tools/date/(.+)?$ tools/index.php?date=$1 [L,QSA,NE,B,PT]
+RewriteRule ^tools/developer/(.+)?$ tools/index.php?owner=$1 [L,QSA,NE,B,PT]
+
+
+RewriteRule ^workspace/teacher$ workspace/teacher.php [L,QSA,NE,B,PT]
+RewriteRule ^workspace/writer$ workspace/writer.php [L,QSA,NE,B,PT]
+RewriteRule ^workspace/editor$ workspace/editor.php [L,QSA,NE,B,PT]
+RewriteRule ^workspace/researches$ workspace/researches.php [L,QSA,NE,B,PT]
+RewriteRule ^workspace/developer$ workspace/developer.php [L,QSA,NE,B,PT]
+
+# RewriteRule ^account/other-registration/(.+)?$ account/index.php?regtype=$1 [L,QSA,NE,B,PT]
+# RewriteRule ^change-password/(.+)?$/(.+)?$ create-password/index.php?userid=$1&toke=$2 [L,QSA,NE,B,PT]
+# RewriteRule ^workspace/teacher/(edit)/([0-9]+)?$ workspace/teacher.php?edit=yes&file=$2 [L,QSA,NE,B,PT]
+
+
+RewriteCond %{REQUEST_URI} documents/teacher [NC]
+
+RewriteCond %{QUERY_STRING} !iframe=true [NC]
+
+RewriteRule ^.*$ /public/teacher-files [R=301,L]
+
+ErrorDocument 404 /eskquip/public/error.php
+
+
+
+
+

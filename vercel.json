@@ -11,6 +11,21 @@
     },
 
     {
+      "src": "/teacher-files",
+      "dest": "/api/teacher-files.php"
+    },
+
+    {
+      "src": "/tools",
+      "dest": "/api/tools.php"
+    },
+
+    {
+      "src": "/researches",
+      "dest": "/api/researches.php"
+    },
+
+    {
       "src": "/(.*)",
       "dest": "/api/index.php"
     }
