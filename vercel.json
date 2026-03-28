@@ -28,6 +28,10 @@
     {
       "src": "/(.*)",
       "dest": "/api/index.php"
+    },
+    {
+      "source": "/assets/(.*)",
+      "destination": "/public/assets/$1"
     }
   ]
 }
