@@ -1,6 +1,7 @@
 
-<?php require __DIR__ . '../../private/initialize.php'; ?>
 
+
+<?php require __DIR__ . '../../private/initialize.php'; ?>
 
 <?php require (INCLUDESLAYOUT_PATH.'/content-handlers.php');?>
 <?php $pageName = $contentTitle ? $contentTitle : 'Teacher Files'?>

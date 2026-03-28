@@ -24,16 +24,16 @@
 
   require ('database.php'); 
 
-  $loggedIn = isset($_SESSION['id']) ? true : false; 
-  $registrantId= isset($_SESSION['id']) ? $_SESSION['id'] : ''; 
+$loggedIn = isset($_SESSION['id']) ? true : false; 
+$registrantId= isset($_SESSION['id']) ? $_SESSION['id'] : ''; 
 
 
 
-  define("PRIVATE_PATH", dirname(__FILE__)); 
-  define("PROJECT_PATH", dirname(PRIVATE_PATH));
-  define("PUBLIC_PATH", PROJECT_PATH . '/public');
-  define ("INCLUDESLAYOUT_PATH", PRIVATE_PATH.'/includes/layouts'); 
-  define ("INCLUDESPROCESSING_PATH", PRIVATE_PATH.'/includes/processing');
+define("PRIVATE_PATH", dirname(__FILE__)); 
+define("PROJECT_PATH", dirname(PRIVATE_PATH));
+define("PUBLIC_PATH", PROJECT_PATH . '/public');
+define ("INCLUDESLAYOUT_PATH", PRIVATE_PATH.'/includes/layouts'); 
+define ("INCLUDESPROCESSING_PATH", PRIVATE_PATH.'/includes/processing');
 
 
 
