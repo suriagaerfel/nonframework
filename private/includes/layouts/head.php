@@ -1,5 +1,4 @@
-<?php ob_start();?>
-<?php session_start(); ?>
+
 
 <?php $user= isset($_GET['user']) ? htmlspecialchars($_GET['user']) : ""; ?>
 <?php require(INCLUDESPROCESSING_PATH.'/registrant-records.php'); ?>
