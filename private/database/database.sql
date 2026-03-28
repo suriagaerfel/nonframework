@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 03, 2026 at 07:45 AM
+-- Generation Time: Mar 28, 2026 at 01:52 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -61,10 +61,9 @@ CREATE TABLE `contents` (
 INSERT INTO `contents` (`contentId`, `contentTable`, `contentForeignId`, `contentRegistrantId`, `contentSharedWith`, `contentStatus`, `contentPubDate`) VALUES
 (6, 'teacher_files', 68, 0, '', 'Unpublished', '2026-02-12 14:57:54'),
 (24, 'teacher_files', 83, 18, '46', 'Unpublished', '2026-02-13 22:36:06'),
-(36, 'developer_tools', 4, 1, '', 'Draft', '0000-00-00 00:00:00'),
-(37, 'developer_tools', 5, 1, '', 'Draft', '0000-00-00 00:00:00'),
+(36, 'developer_tools', 4, 1, '', 'Published', '2026-03-18 14:36:16'),
 (38, 'writer_articles', 143, 18, '', 'To Revise', '2026-02-26 21:37:12'),
-(40, 'teacher_files', 92, 47, '', 'Unpublished', '2026-03-02 17:59:51');
+(40, 'teacher_files', 92, 47, '2026000004271998, 2026000004272015', 'Published', '2026-03-02 17:59:51');
 
 -- --------------------------------------------------------
 
@@ -85,8 +84,7 @@ CREATE TABLE `content_categories` (
 
 INSERT INTO `content_categories` (`content_categoryId`, `content_categoryType`, `content_categoryName`, `content_categoryCreated`) VALUES
 (13, 'Article', 'News', '2026-02-22 09:14:32'),
-(16, 'Tool', 'math', '2026-02-26 12:50:38'),
-(17, 'Teacher File', 'fdgdfhfdh', '2026-02-28 06:21:53');
+(16, 'Tool', 'math', '2026-02-26 12:50:38');
 
 -- --------------------------------------------------------
 
@@ -195,7 +193,8 @@ CREATE TABLE `content_performance` (
 INSERT INTO `content_performance` (`content_viewId`, `content_viewTimestamp`, `content_viewTable`, `content_viewForeignId`, `content_viewUserId`, `content_viewTime`, `content_viewLastUpdate`) VALUES
 (1, '2026-02-10 07:16:19', 'developer_tools', 1, 1, 20, '2026-02-18 13:46:11'),
 (2, '2026-02-19 15:16:46', 'developer_tools', 3, 18, 2, '2026-02-19 15:45:34'),
-(3, '2026-02-20 05:58:09', 'developer_tools', 3, 1, 1, '2026-02-20 05:58:09');
+(3, '2026-02-20 05:58:09', 'developer_tools', 3, 1, 1, '2026-02-20 05:58:09'),
+(4, '2026-03-18 06:36:26', 'developer_tools', 4, 1, 17, '2026-03-27 15:32:42');
 
 -- --------------------------------------------------------
 
@@ -225,7 +224,8 @@ INSERT INTO `content_purchase` (`content_purchaseId`, `content_purchaseTimestamp
 (1, '2025-12-07 06:18:06', 'Teacher File', 28, 18, 10, 1, 'GCASH', 'vsdsdgdsfsdg', 'Approved', '/uploads/file-purchase/proof/userid-1-20251207141806.jpeg'),
 (6, '2026-02-16 06:21:27', 'Teacher File', 77, 1, 10, 1, 'GCash', 'dsgdgdh', 'Revoked', '/uploads/content-purchase/proof/userid-1-20260216142127.jpeg'),
 (9, '2026-02-16 14:18:54', 'Teacher File', 77, 1, 10, 18, 'PayMaya', 'ffgfdhfh', 'Revoked', '/uploads/content-purchase/proof/userid-18-20260216221854.jpeg'),
-(10, '2026-02-19 14:56:24', 'Teacher File', 84, 1, 50, 18, 'GCash', 'fsddsg', 'Approved', '/uploads/content-purchase/proof/userid-18-20260219225624.jpeg');
+(10, '2026-02-19 14:56:24', 'Teacher File', 84, 1, 50, 18, 'GCash', 'fsddsg', 'Approved', '/uploads/content-purchase/proof/userid-18-20260219225624.jpeg'),
+(11, '2026-03-12 04:06:20', 'Teacher File', 92, 47, 70, 1, 'GCash', 'hghcgj', 'Pending', '/uploads/content-purchase/proof/userid-1-20260312120620.jpeg');
 
 -- --------------------------------------------------------
 
@@ -239,13 +239,6 @@ CREATE TABLE `content_tags` (
   `content_tagCreator` int(11) NOT NULL,
   `content_tagCreated` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `content_tags`
---
-
-INSERT INTO `content_tags` (`content_tagId`, `content_tagName`, `content_tagCreator`, `content_tagCreated`) VALUES
-(3, 'erfel', 1, '2026-03-01 02:42:58');
 
 -- --------------------------------------------------------
 
@@ -300,8 +293,7 @@ CREATE TABLE `developer_tools` (
 --
 
 INSERT INTO `developer_tools` (`developer_toolId`, `developer_toolTitle`, `developer_toolCategory`, `developer_toolTags`, `developer_toolDescription`, `developer_toolImage`, `developer_toolDeveloper`, `developer_toolCreatedDate`, `developer_toolPubDate`, `developer_toolUpdateDate`, `developer_toolContentVersion`, `developer_toolStatus`, `developer_toolAccessType`, `developer_toolAmount`, `developer_toolSharedWith`, `developer_toolSlug`, `developer_toolContent`) VALUES
-(4, 'sefdsgdd', 'math', '', 'ffhgfgfjgjghhg', '', '1', '2026-02-26 12:50:55', '0000-00-00 00:00:00', '2026-02-26 12:50:55', 1, 'Draft', 'Free Access', 0, '', '/public/tools/sefdsgdd/', ''),
-(5, 'dfgfdh', 'math', '', 'fdgfdhgfgfjgj', '', '1', '2026-02-26 13:18:13', '0000-00-00 00:00:00', '2026-02-26 13:18:13', 1, 'Draft', 'Free Access', 0, '', '/public/tools/dfgfdh/', '');
+(4, 'sefdsgdd', 'math', '', 'ffhgfgfjgjghhg', '', '1', '2026-02-26 12:50:55', '2026-03-18 14:36:16', '2026-03-18 06:36:16', 1, 'Published', 'Free Access', 0, '', '/public/tools/sefdsgdd/', '');
 
 -- --------------------------------------------------------
 
@@ -315,6 +307,13 @@ CREATE TABLE `developer_tool_files` (
   `developer_tool_fileToolId` int(11) NOT NULL,
   `developer_tool_fileLink` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `developer_tool_files`
+--
+
+INSERT INTO `developer_tool_files` (`developer_tool_fileId`, `developer_tool_fileTimestamp`, `developer_tool_fileToolId`, `developer_tool_fileLink`) VALUES
+(9, '2026-03-18 06:36:13', 4, '/public/tools/sefdsgdd/index.php');
 
 -- --------------------------------------------------------
 
@@ -381,11 +380,12 @@ CREATE TABLE `message_threads` (
 --
 
 INSERT INTO `message_threads` (`message_threadId`, `message_threadType`, `message_threadCode`, `message_threadTimestamp`, `message_threadUpdateDate`) VALUES
-(1, 'Personal', '20260000042719982026000004271998', '2026-03-02 15:17:33', '2026-03-03 01:35:50'),
-(2, 'Personal', '20260000042719982026000004272044', '2026-03-02 15:17:42', '2026-03-03 03:03:06'),
-(3, 'Message Manager', 'TOADMIN2026000004272044', '2026-03-02 15:20:28', '2026-03-02 15:20:28'),
-(4, 'Message Manager', 'TOADMIN2026000004271998', '2026-03-02 15:21:06', '2026-03-02 15:21:06'),
-(5, 'Personal', '20260000042720442026000004272044', '2026-03-03 06:43:52', '2026-03-03 06:43:52');
+(1, 'Personal', '20260000042719982026000004271998', '2026-03-02 15:17:33', '2026-03-21 02:47:48'),
+(2, 'Personal', '20260000042719982026000004272044', '2026-03-02 15:17:42', '2026-03-20 09:58:37'),
+(3, 'Message Manager', 'TOADMIN2026000004272044', '2026-03-02 15:20:28', '2026-03-24 10:00:52'),
+(4, 'Message Manager', 'TOADMIN2026000004271998', '2026-03-02 15:21:06', '2026-03-06 07:43:46'),
+(5, 'Personal', '20260000042720442026000004272044', '2026-03-03 06:43:52', '2026-03-06 09:50:06'),
+(6, 'Personal', '20260000042719982026000004272006', '2026-03-20 10:00:00', '2026-03-22 05:30:29');
 
 -- --------------------------------------------------------
 
@@ -413,7 +413,7 @@ CREATE TABLE `other_registrations` (
 --
 
 INSERT INTO `other_registrations` (`otherId`, `otherTimestamp`, `otherType`, `otherUserId`, `otherRegistrantAccountName`, `otherResume`, `otherLicenseCertification`, `otherSample`, `otherAgreement`, `otherNotes`, `otherStatus`, `otherApprovalDate`) VALUES
-(1, '2026-03-02 09:58:36', 'Teacher', 47, 'Noy Trebyu', '', '/uploads/registration/Teacher/license-certification/Noy-Trebyu-20260302175836.pdf', '', '/uploads/registration/Teacher/agreement/Noy-Trebyu-20260302175836.pdf', '', 'Kept', '2026-03-02 21:37:32');
+(1, '2026-03-02 09:58:36', 'Teacher', 47, 'Noy Trebyu', '', '/uploads/registration/Teacher/license-certification/Noy-Trebyu-20260302175836.pdf', '', '/uploads/registration/Teacher/agreement/Noy-Trebyu-20260302175836.pdf', '', 'Kept', '2026-03-22 13:33:02');
 
 -- --------------------------------------------------------
 
@@ -445,38 +445,6 @@ CREATE TABLE `promotions` (
 --
 
 INSERT INTO `promotions` (`promotionId`, `promotionCode`, `promotionTimestamp`, `promotionNameCompany`, `promotionTitle`, `promotionTopics`, `promotionDescription`, `promotionType`, `promotionImage`, `promotionLink`, `promotionDuration`, `promotionAmount`, `promotionAgreement`, `promotionDate`, `promotionExpiry`, `promotionStatus`) VALUES
-(1, '', '2025-12-04 11:21:16', 'Erfel Suriaga', 'Promoting the EskQuip Web App', 'education', 'This web app is awesome.', 'Products', '/uploads/promotion/image/erfel_suriaga-20260220185812.jpeg', 'https://shopee.ph/erfiaga', '4', 50, '/uploads/promotion/agreement/erfel_suriaga-20251204192116.pdf', '2025-12-04 20:47:49', '2025-12-08 20:47:49', 'Published'),
-(2, '', '2025-12-04 13:11:59', 'Erfel Suriaga', 'Promoting the EskQuip App', 'Education', 'sdfdssgdsg', 'Products', '/uploads/promotion/image/erfel_suriaga-20251204211159.jpeg', 'https://facebook.com', '5', 6, '/uploads/promotion/agreement/erfel_suriaga-20251204211159.pdf', '2025-12-04 21:12:02', '2025-12-09 21:12:02', 'Unpublished'),
-(3, '', '2025-12-04 13:22:30', 'Erfelddgfdg', 'fhdh', 'fgdfggfgfg', 'ghghhdfh', 'Services', '/uploads/promotion/image/erfelddgfdg-20251204212230.jpeg', 'https://youtube.com', '6', 7, '/uploads/promotion/agreement/erfelddgfdg-20251204212230.pdf', '2025-12-04 21:22:33', '2025-12-10 21:22:33', 'Unpublished'),
-(4, '', '2025-12-04 14:08:33', 'sdg', 'fgfg', 'fdhfgh', 'gfjgfjgfj', 'Products', '/uploads/promotion/image/sdg-20251204220833.jpeg', 'dgdg', '56', 7, '/uploads/promotion/agreement/sdg-20251204220833.pdf', '2025-12-04 22:08:35', '2026-01-29 22:08:35', 'Unpublished'),
-(5, '', '2025-12-04 14:09:06', 'dgfdg', 'dhfgghfh', 'gfdg', 'fgfdhfdh', 'Products', '/uploads/promotion/image/dgfdg-20251204220906.jpeg', 'fdgfdg', '67', 67, '/uploads/promotion/agreement/dgfdg-20251204220906.pdf', '2025-12-04 22:09:08', '2026-02-09 22:09:08', 'Unpublished'),
-(6, '', '2026-01-07 13:31:55', 'Erfel Suriaga', 'Promoting the EskQuip Web App', 'education', 'This web app is awesome.', 'Products', '/uploads/promotion/image/erfel_suriaga-20260220185508.jpeg', 'https://shopee.ph/erfiaga', '4', 50, '/uploads/promotion/agreement/erfel_suriaga-20260107213155.', '2026-02-18 13:39:46', '2026-02-18 13:39:46', 'Unpublished'),
-(7, '', '2026-01-07 13:54:52', 'Erfelddgfdg', 'fhdh', 'fgdfggfgfg', 'ghghhdfh', 'Services', '/uploads/promotion/image/erfelddgfdg-20260107215452.', 'https://youtube.com', '6', 7, '/uploads/promotion/agreement/erfelddgfdg-20260107215452.', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'Draft'),
-(8, '', '2026-01-07 13:54:53', 'Erfelddgfdg', 'fhdh', 'fgdfggfgfg', 'ghghhdfh', 'Services', '/uploads/promotion/image/erfelddgfdg-20260107215453.', 'https://youtube.com', '6', 7, '/uploads/promotion/agreement/erfelddgfdg-20260107215453.', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'Draft'),
-(9, '', '2026-01-07 14:10:22', 'dgfdg', 'dhfgghfh', 'gfdg', 'fgfdhfdh', 'Products', '/eskquip/private/uploads/promotion/image/dgfdg-20251204220906.jpeg', 'fdgfdg', '67', 67, '/eskquip/private/uploads/promotion/agreement/dgfdg-20251204220906.pdf', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'Draft'),
-(10, '', '2026-01-07 14:10:26', 'dgfdg', 'dhfgghfh', 'gfdg', 'fgfdhfdh', 'Products', '/eskquip/private/uploads/promotion/image/dgfdg-20251204220906.jpeg', 'fdgfdg', '67', 67, '/eskquip/private/uploads/promotion/agreement/dgfdg-20251204220906.pdf', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'Draft'),
-(11, '', '2026-01-07 14:11:05', 'Erfelddgfdg', 'fhdh', 'fgdfggfgfg', 'ghghhdfh', 'Services', '/eskquip/private/uploads/promotion/image/erfelddgfdg-20260107215452.', 'https://youtube.com', '6', 7, '/eskquip/private/uploads/promotion/agreement/erfelddgfdg-20260107215452.', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'Draft'),
-(12, '', '2026-01-07 14:14:23', 'dgfdg', 'dhfgghfh', 'gfdg', 'fgfdhfdh', 'Products', '/uploads/promotion/image/dgfdg-20260107221423.jpeg', 'fdgfdg', '67', 67, '/eskquip/private/eskquip/private/uploads/promotion/agreement/dgfdg-20251204220906.pdf', '2026-02-25 15:27:07', '2026-02-25 15:27:07', 'Unpublished'),
-(13, '', '2026-01-07 14:16:17', 'dgfdg', 'dhfgghfh', 'gfdg', 'fgfdhfdh', 'Products', '/uploads/promotion/image/dgfdg-20260107221617.jpeg', 'fdgfdg', '67', 67, '/eskquip/private/eskquip/private/uploads/promotion/agreement/dgfdg-20251204220906.pdf', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'Draft'),
-(14, '', '2026-01-07 14:17:08', 'dgfdg', 'dhfgghfh', 'gfdg', 'fgfdhfdh', 'Products', '/uploads/promotion/image/dgfdg-20260107221708.jpeg', 'fdgfdg', '67', 67, '/eskquip/private/eskquip/private/uploads/promotion/agreement/dgfdg-20251204220906.pdf', '2026-01-08 13:17:11', '2026-01-08 13:17:11', 'Unpublished'),
-(15, '', '2026-01-07 14:20:38', 'dgfdg', 'dhfgghfh', 'gfdg', 'fgfdhfdh', 'Products', '/uploads/promotion/image/dgfdg-20260107222038.jpeg', 'fdgfdg', '67', 67, '/eskquip/private/eskquip/private/uploads/promotion/agreement/dgfdg-20251204220906.pdf', '2026-01-08 13:17:08', '2026-01-08 13:17:08', 'Unpublished'),
-(16, '', '2026-01-07 14:29:58', 'dgfdg', 'dhfgghfh', 'gfdg', 'fgfdhfdh', 'Products', '/uploads/promotion/image/dgfdg-20260107222958.jpeg', 'fdgfdg', '67', 67, '/eskquip/private/eskquip/private/eskquip/private/uploads/promotion/agreement/dgfdg-20251204220906.pdf', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'Draft'),
-(17, '', '2026-01-07 14:30:45', 'dgfdg', 'dhfgghfh', 'gfdg', 'fgfdhfdh', 'Products', '/uploads/promotion/image/dgfdg-20260107223045.jpeg', 'fdgfdg', '67', 67, '/eskquip/private/eskquip/private/eskquip/private/eskquip/private/uploads/promotion/agreement/dgfdg-20251204220906.pdf', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'Draft'),
-(18, '', '2026-01-07 14:31:13', 'dgfdg', 'dhfgghfh', 'gfdg', 'fgfdhfdh', 'Services', '/eskquip/private/uploads/promotion/image/dgfdg-20260107223045.jpeg', 'fdgfdg', '67', 67, '/eskquip/private/eskquip/private/eskquip/private/eskquip/private/eskquip/private/uploads/promotion/agreement/dgfdg-20251204220906.pdf', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'Draft'),
-(19, '', '2026-01-07 14:31:21', 'Erfel', 'dhfgghfh', 'gfdg', 'fgfdhfdh', 'Services', '/eskquip/private/eskquip/private/uploads/promotion/image/dgfdg-20260107223045.jpeg', 'fdgfdg', '67', 67, '/eskquip/private/eskquip/private/eskquip/private/eskquip/private/eskquip/private/eskquip/private/uploads/promotion/agreement/dgfdg-20251204220906.pdf', '2026-01-08 13:15:56', '2026-01-08 13:15:56', 'Unpublished'),
-(20, '', '2026-01-07 14:33:34', 'new', 'gfhgfh', 'gfhgfh', 'ghgfhg', 'Products', '/uploads/promotion/image/new-20260107223334.jpeg', 'fgffdhfdhfdhfdhhhh', '1', 56, '/uploads/promotion/agreement/new-20260107223334.jpeg', '2026-01-08 13:16:26', '2026-01-08 13:16:26', 'Unpublished'),
-(21, '', '2026-01-07 14:33:57', 'new', 'gfhgfh', 'gfhgfh', 'ghgfhg', 'Products', '/eskquip/private/uploads/promotion/image/new-20260107223334.jpeg', 'fgffdhfdhfdhfdhhhh', '2', 56, '/eskquip/private/uploads/promotion/agreement/new-20260107223334.jpeg', '2026-01-08 13:17:06', '2026-03-16 13:17:06', 'Unpublished'),
-(22, '', '2026-02-04 14:57:48', 'new', 'gfhgfh', 'gfhgfh', 'ghgfhg', 'Products', '/eskquip/private/eskquip/private/uploads/promotion/image/new-20260107223334.jpeg', 'fgffdhfdhfdhfdhhhh', '2', 56, '/eskquip/private/eskquip/private/uploads/promotion/agreement/new-20260107223334.jpeg', '2026-02-04 22:58:08', '2026-02-04 22:58:08', 'Unpublished'),
-(23, '', '2026-02-18 10:04:34', 'Erfel Suriaga', 'Promoting the EskQuip Web App', 'education', 'This web app is awesome.', 'Products', '/uploads/promotion/image/erfel_suriaga-20251204192116.jpeg', 'https://shopee.ph/erfiaga', '4', 50, '/uploads/promotion/agreement/erfel_suriaga-20251204192116.pdf', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'Draft'),
-(24, '', '2026-02-18 10:04:58', 'Erfel Suriagaf', 'Promoting the EskQuip Web App', 'education', 'This web app is awesome.', 'Products', '/uploads/promotion/image/erfel_suriaga-20251204192116.jpeg', 'https://shopee.ph/erfiaga', '4', 50, '/uploads/promotion/agreement/erfel_suriaga-20251204192116.pdf', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'Draft'),
-(25, '', '2026-02-18 10:08:10', 'Erfel Suriaga', 'Promoting the EskQuip Web App', 'education', 'This web app is awesome.', 'Products', '/uploads/promotion/image/erfel_suriaga-20251204192116.jpeg', 'https://shopee.ph/erfiaga', '4', 50, '/uploads/promotion/agreement/erfel_suriaga-20251204192116.pdf', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'Draft'),
-(26, '', '2026-02-18 10:08:43', 'Erfel Suriagas', 'Promoting the EskQuip Web App', 'education', 'This web app is awesome.', 'Products', '/uploads/promotion/image/erfel_suriaga-20251204192116.jpeg', 'https://shopee.ph/erfiaga', '4', 50, '/uploads/promotion/agreement/erfel_suriaga-20251204192116.pdf', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'Draft'),
-(27, '', '2026-02-18 10:30:53', 'Erfel Suriaga', 'Promoting the EskQuip Web App', 'education', 'This web app is awesome.', 'Services', '/uploads/promotion/image/erfel_suriaga-20251204192116.jpeg', 'https://shopee.ph/erfiaga', '4', 50, '/uploads/promotion/agreement/erfel_suriaga-20251204192116.pdf', '2026-02-23 14:24:28', '2026-02-23 14:24:28', 'Published'),
-(28, '', '2026-02-18 10:31:04', 'Erfel Suriagaffff', 'Promoting the EskQuip Web App', 'education', 'This web app is awesome.', 'Services', '/uploads/promotion/image/erfel_suriaga-20251204192116.jpeg', 'https://shopee.ph/erfiaga', '4', 50, '/uploads/promotion/agreement/erfel_suriaga-20251204192116.pdf', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'Draft'),
-(29, '', '2026-02-18 10:38:15', 'gfdgfdg', 'hhfdh', 'hghdfh', 'hdfh', 'Products', '/uploads/promotion/image/gfdgfdg-20260218183815.jpeg', 'https://facebook.com', '2', 45, '/uploads/promotion/agreement/gfdgfdg-20260218183815.pdf', '2026-02-23 14:54:44', '2026-02-23 14:54:44', 'Unpublished'),
-(30, '', '2026-02-18 10:49:14', 'dsgsdg', 'fdgfdg', 'fdgfdg', 'fgfdgfdg', 'Products', '/uploads/promotion/image/dsgsdg-20260218184914.jpeg', 'sgfdhhh', '3', 56, '/uploads/promotion/agreement/dsgsdg-20260218184914.pdf', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'Draft'),
-(31, '', '2026-02-18 10:58:19', 'Erfiaga Publishing', 'Erfiaga Advertisement', 'print', 'hfdhghgfjgfj', 'Services', '/uploads/promotion/image/erfiaga-20260218185819.jpeg', 'erfriaga.com', '4', 34, '/uploads/promotion/agreement/erfiaga-20260218185819.pdf', '2026-02-23 14:24:36', '2026-02-23 14:24:36', 'Published'),
-(32, '', '2026-02-18 11:14:31', 'dgdhgghgg', 'ghgj', 'hgk', 'khjhl', 'Products', '/uploads/promotion/image/dgdh-20260218191431.jpeg', 'gfdgdsgdsg', '3', 45, '/uploads/promotion/agreement/dgdh-20260218191431.pdf', '2026-02-18 19:14:38', '2026-02-18 19:14:38', 'Published'),
 (33, 'ESKQUIPPROMOTE000129454', '2026-02-20 12:11:53', 'Erfiaga Publishing', 'Personalized Paperback Tracing and Writing Workbook- 6x8 inches, 128 pages', 'activity book', 'This personalized tracing and writing workbook for letters and name is useful for kids in preparing for school and enhancing their fine motor skills. Contained in the workbook are: 3 Prepare Me activities, to familiarize the correct order of numbers.78 Letter activities, to trace and write letters using the indicated numbers and arrows.12 Name activities, to apply tracing and writing skills to own name, until becoming ready for school.', 'Products', '/uploads/promotion/image/erfiaga_publishing-20260220201153.jpg', 'https://shopee.ph/Personalized-Paperback-Tracing-and-Writing-Workbook-6x8-inches-128-pages-i.1596326265.44462169784?extraParams=%7B%22display_model_id%22%3A261020244618%2C%22model_selection_logic%22%3A3%7D', '45', 10, '/uploads/promotion/agreement/erfiaga_publishing-20260220201153.pdf', '2026-02-20 20:11:56', '2026-03-22 20:11:56', 'Published');
 
 -- --------------------------------------------------------
@@ -1652,7 +1620,69 @@ INSERT INTO `registrant_activities` (`registrant_activityId`, `registrant_activi
 (1151, '2026-03-03 06:38:27', 47, '', 'Logged out'),
 (1152, '2026-03-03 06:38:32', 1, '', 'Logged in'),
 (1153, '2026-03-03 06:40:44', 47, '', 'Logged in'),
-(1154, '2026-03-03 06:45:24', 1, '', 'Logged out');
+(1154, '2026-03-03 06:45:24', 1, '', 'Logged out'),
+(1155, '2026-03-03 10:07:11', 1, '', 'Logged in'),
+(1156, '2026-03-05 04:33:54', 1, '', 'Logged out'),
+(1157, '2026-03-05 04:34:04', 1, '', 'Logged in'),
+(1158, '2026-03-05 05:44:52', 1, '', 'Logged out'),
+(1159, '2026-03-05 05:45:02', 1, '', 'Logged in'),
+(1160, '2026-03-06 05:24:41', 1, '', 'Logged out'),
+(1161, '2026-03-06 05:24:47', 1, '', 'Logged in'),
+(1162, '2026-03-06 05:35:25', 9, '', 'Logged out'),
+(1163, '2026-03-06 05:35:32', 47, '', 'Logged out'),
+(1164, '2026-03-06 05:35:39', 47, '', 'Logged in'),
+(1165, '2026-03-06 10:23:26', 47, '', 'Logged out'),
+(1166, '2026-03-06 12:35:43', 1, '', 'Logged out'),
+(1167, '2026-03-06 12:35:49', 1, '', 'Logged in'),
+(1168, '2026-03-06 12:36:49', 1, '', 'Logged out'),
+(1169, '2026-03-06 12:37:12', 1, '', 'Logged in'),
+(1170, '2026-03-06 12:52:52', 1, '', 'Logged out'),
+(1171, '2026-03-10 08:58:47', 1, '', 'Logged in'),
+(1172, '2026-03-10 08:59:31', 47, '', 'Logged in'),
+(1173, '2026-03-10 10:53:02', 1, '', 'Logged out'),
+(1174, '2026-03-10 10:53:14', 1, '', 'Logged in'),
+(1175, '2026-03-12 02:02:49', 1, '', 'Logged out'),
+(1176, '2026-03-12 02:02:52', 1, '', 'Logged in'),
+(1177, '2026-03-12 02:03:47', 49, '', 'Logged out'),
+(1178, '2026-03-12 02:04:02', 47, '', 'Logged out'),
+(1179, '2026-03-12 02:04:05', 47, '', 'Logged in'),
+(1180, '2026-03-12 02:21:03', 1, '', 'Logged out'),
+(1181, '2026-03-12 02:21:07', 1, '', 'Logged in'),
+(1182, '2026-03-12 02:56:57', 1, '', 'Logged out'),
+(1183, '2026-03-12 02:56:59', 1, '', 'Logged out'),
+(1184, '2026-03-12 02:56:59', 1, '', 'Logged out'),
+(1185, '2026-03-12 02:56:59', 1, '', 'Logged out'),
+(1186, '2026-03-12 02:57:32', 1, '', 'Logged in'),
+(1187, '2026-03-12 04:09:27', 47, '', 'Logged out'),
+(1188, '2026-03-12 04:09:34', 47, '', 'Logged in'),
+(1189, '2026-03-13 04:57:53', 1, '', 'Logged out'),
+(1190, '2026-03-13 04:58:03', 1, '', 'Logged in'),
+(1191, '2026-03-13 05:11:49', 47, '', 'Logged out'),
+(1192, '2026-03-13 05:11:55', 47, '', 'Logged in'),
+(1193, '2026-03-13 05:49:09', 47, '', 'Logged out'),
+(1194, '2026-03-13 13:01:47', 47, '', 'Logged in'),
+(1195, '2026-03-13 14:28:42', 1, '', 'Logged out'),
+(1196, '2026-03-15 09:33:19', 1, '', 'Logged in'),
+(1197, '2026-03-18 06:33:03', 1, '', 'Logged out'),
+(1198, '2026-03-18 06:33:13', 1, '', 'Logged in'),
+(1199, '2026-03-18 06:41:35', 47, '', 'Logged out'),
+(1200, '2026-03-18 06:41:51', 47, '', 'Logged in'),
+(1201, '2026-03-20 09:57:41', 1, '', 'Logged out'),
+(1202, '2026-03-20 09:57:52', 1, '', 'Logged in'),
+(1203, '2026-03-21 02:18:55', 1, '', 'Logged out'),
+(1204, '2026-03-21 02:19:07', 1, '', 'Logged in'),
+(1205, '2026-03-22 03:48:10', 1, '', 'Logged out'),
+(1206, '2026-03-22 03:48:15', 47, '', 'Logged out'),
+(1207, '2026-03-22 03:48:17', 47, '', 'Logged in'),
+(1208, '2026-03-22 03:57:03', 47, '', 'Logged out'),
+(1209, '2026-03-22 03:57:11', 1, '', 'Logged in'),
+(1210, '2026-03-22 10:09:34', 1, '', 'Logged out'),
+(1211, '2026-03-22 10:09:44', 1, '', 'Logged in'),
+(1212, '2026-03-23 01:50:10', 1, '', 'Logged out'),
+(1213, '2026-03-23 01:50:19', 1, '', 'Logged in'),
+(1214, '2026-03-27 15:07:59', 1, '', 'Logged out'),
+(1215, '2026-03-27 15:12:40', 1, '', 'Logged out'),
+(1216, '2026-03-27 15:12:50', 1, '', 'Logged in');
 
 -- --------------------------------------------------------
 
@@ -1683,8 +1713,9 @@ CREATE TABLE `registrant_subscriptions` (
 --
 
 INSERT INTO `registrant_subscriptions` (`registrant_subscriptionId`, `registrant_subscriptionUserId`, `registrant_subscriptionRegistrantAccountName`, `registrant_subscriptionType`, `registrant_subscriptionDuration`, `registrant_subscriptionTotal`, `registrant_subscriptionPaymentOption`, `registrant_subscriptionSenderName`, `registrant_subscriptionSenderAccountNumber`, `registrant_subscriptionRefNumber`, `registrant_subscriptionProofOfPayment`, `registrant_subscriptionTimestamp`, `registrant_subscriptionStatus`, `registrant_subscriptionDate`, `registrant_subscriptionExpiry`) VALUES
-(1, 1, 'Erfel Contiga Suriaga', 'Tools', '3', 207, 'GCASH', '', '', 'sdfdsgt', '/uploads/subscription/proof/userid-1-20260228225032.jpeg', '2026-02-28 22:50:32', 'Approved', '2026-02-28 23:04:08', '2026-05-29 23:04:08'),
-(2, 47, 'Noy Trebyu', 'Tools', '5', 345, 'GCASH', '', '', 'rgdhth', '/uploads/subscription/proof/userid-47-20260302200703.jpeg', '2026-03-02 20:07:03', 'Approved', '2026-03-02 20:08:20', '2026-07-30 20:08:20');
+(1, 1, 'Erfel Contiga Suriaga', 'Tools', '3', 207, 'GCASH', '', '', 'sdfdsgt', '/uploads/subscription/proof/userid-1-20260228225032.jpeg', '2026-02-28 22:50:32', 'Revoked', '2026-02-28 23:04:08', '2026-05-29 23:04:08'),
+(2, 47, 'Noy Trebyu', 'Tools', '5', 345, 'GCASH', '', '', 'rgdhth', '/uploads/subscription/proof/userid-47-20260302200703.jpeg', '2026-03-02 20:07:03', 'Kept', '2026-03-12 14:14:55', '2026-08-09 14:14:55'),
+(3, 47, '', 'Seller', '1', 100, 'GCASH', '', '', 'dghd', '/uploads/subscription/proof/userid-47-20260310185159.jpeg', '2026-03-10 18:51:59', 'Revoked', '2026-03-12 14:14:53', '2026-04-11 14:14:53');
 
 -- --------------------------------------------------------
 
@@ -1750,7 +1781,7 @@ INSERT INTO `registrations` (`registrantId`, `registrantCode`, `registrantFirstN
 (9, '2026000004272006', '', '', '', 'Example National High School', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using &amp;amp;amp;#039;Content here, content here&amp;amp;amp;#039;, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for &amp;amp;amp;#039;lorem ipsum&amp;amp;amp;#039; will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).', 'School', 1, '/uploads/profile-pictures/Example_National_High_School-20260223233903.jpeg', '/uploads/cover-photos/Example_National_High_School-20260223235005.jpeg', '0000-00-00', '', '', '', '', 'ALLACAPAN', 'CAGAYAN', 'REGION II', 'Philippines', '', '', '', '', 'sirversafel@gmail.com', '09942762632', 'examplenhs', '$2y$10$EY5ISxLZDiTZ/xoEcBnQM.iSLhhQl/4QyaiMlQgjZuBusdBkzX1KW', '', 'Junior High School', '', '', '', '', '', 'Researches', 'Verified', 'Kept', '2025-10-18 11:50:01', '', '0000-00-00 00:00:00', '', '', '', '', ''),
 (16, '2026000004272013', 'Erfiaga', '', 'Publishing', 'Erfiaga Publishing', '', 'Personal', 1, '', '', '2025-10-15', 'Hide Gender', '', '', '', '', '', '', 'Philippines', '', 'Associate Degree Holder', '', '', 'erfiagaprintsandbooks@gmail.com', '', 'erfiaga', '$2y$10$YiTGGjQ30rKhWRG7iOfWM.Oj5xua63HL74cTaqHgma2.sEya9yfSi', '', 'Basic User', '', '', '', '', '', '', 'Verified', 'Kept', '2025-10-30 11:53:47', '', '0000-00-00 00:00:00', '', '', '', '', ''),
 (18, '2026000004272015', 'Erfel', '', 'Printing', 'Erfel Printing', '', 'Personal', 1, '/uploads/profile-pictures/Erfel_S_Printing-20260223233408.jpeg', '/uploads/cover-photos/Erfel_S_Printing-20260223233442.jpeg', '2025-11-18', 'Male', '', 'dsgdgg', 'SAN RAFAEL (IDIANG)', 'ITBAYAT', 'BATANES', 'REGION II', 'Philippines', '', '', 'PNU', 'Teacher', 'erfelprintingservices@gmail.com', '09942762632', 'eps', '$2y$10$I.d83QSfQ/LX5RJkvcG56OYuAToGU17g82TT5GLqpKGBhlqvQEKiC', '', 'Basic User', 'Teacher', 'Writer', 'Editor', '', '', '', 'Verified', 'Revoked', '2025-11-11 16:37:14', '7e87a4ba6af4acb315c171675730123bc1fabcb9a776e6536024f9ea1867bce7', '2026-01-06 17:23:12', 'GCASH', 'Erfel Suriaga', '09942762632', 'Mon-Fri', ''),
-(47, '2026000004272044', 'Noy', '', 'Trebyu', 'Noy Trebyu', '', 'Personal', 1, '', '', '2026-02-14', 'Male', '', '', '', '', '', '', 'Philippines', '', '', '', '', 'noytrebyu@gmail.com', '', 'noytrebyu', '$2y$10$aenkYulz0RMAzA/j.7lPw./ymIO2IIASV1EinwFV50ocbC7nMjnN6', '', 'Basic User', 'Teacher', '', '', '', '', '', 'Verified', 'Good', '2026-02-24 12:15:52', '', '0000-00-00 00:00:00', '', '', '', '', '');
+(47, '2026000004272044', 'Noy', '', 'Trebyu', 'Noy Trebyu', '', 'Personal', 1, '', '', '2026-02-14', 'Male', '', '', '', '', '', '', 'Philippines', '', '', '', '', 'noytrebyu@gmail.com', '', 'noytrebyu', '$2y$10$aenkYulz0RMAzA/j.7lPw./ymIO2IIASV1EinwFV50ocbC7nMjnN6', '', 'Basic User', 'Teacher', '', '', '', '', '', 'Verified', 'Good', '2026-02-24 12:15:52', '', '0000-00-00 00:00:00', 'GCASH', 'Erfel Suriaga', '09942762632', 'Mon-Fri', '');
 
 -- --------------------------------------------------------
 
@@ -1815,7 +1846,7 @@ CREATE TABLE `teacher_files` (
 INSERT INTO `teacher_files` (`teacher_fileId`, `teacher_fileTitle`, `teacher_fileSlug`, `teacher_fileCategory`, `teacher_fileTags`, `teacher_fileAccessType`, `teacher_fileSharedWith`, `teacher_fileDescription`, `teacher_fileContentVersion`, `teacher_fileImage`, `teacher_fileFormat`, `teacher_fileTeacher`, `teacher_fileUploadDate`, `teacher_filePubDate`, `teacher_fileUpdateDate`, `teacher_fileStatus`, `teacher_fileForSale`, `teacher_fileAmount`, `teacher_fileContent`) VALUES
 (68, 'rtty', 'rtty', 'Uncategorized', 'trhh', 'Free Access', 'thtrh', 'rhhrhr', 1, '', 'pdf', '18', '0000-00-00 00:00:00', '2026-02-12 14:57:54', '2026-02-21 22:02:42', 'Unpublished', 'Not for Sale', 0, '/uploads/documents/teacher/files/18-72747479.pdf'),
 (83, 'dhfgh', 'dhfgh', 'Test Paper', '', 'Free Access', '46', 'hgfhgfjgfjgjhj', 1, '', 'pdf', '18', '0000-00-00 00:00:00', '2026-02-13 22:36:06', '2026-02-19 14:20:14', 'Unpublished', 'Not for Sale', 0, '/uploads/documents/teacher/files/18-6468666768.pdf'),
-(92, 'dsfdfgdh', 'dsfdfgdh', 'fdgdfhfdh', '', 'Free Access', '', 'dhhtr', 1, '', 'pdf', '47', '0000-00-00 00:00:00', '2026-03-02 17:59:51', '2026-03-02 19:49:57', 'Unpublished', 'Not for Sale', 0, '/uploads/documents/teacher/files/47-6473666466676468.pdf');
+(92, 'dsfdfgdh', 'dsfdfgdh', 'Uncategorized', '', 'Purchased', '2026000004271998, 2026000004272015', 'dhhtr', 1, '', 'pdf', '47', '0000-00-00 00:00:00', '2026-03-02 17:59:51', '2026-03-20 18:02:24', 'Published', 'Not for Sale', 70, '/uploads/documents/teacher/files/47-6473666466676468.pdf');
 
 -- --------------------------------------------------------
 
@@ -1839,16 +1870,95 @@ CREATE TABLE `thread_messages` (
 --
 
 INSERT INTO `thread_messages` (`thread_messageId`, `thread_messageThreadCode`, `thread_messageRegistrantId`, `thread_messageContent`, `thread_messageTimestamp`, `thread_messageStatus`, `thread_messageStatusSender`, `thread_messageStatusRecipient`) VALUES
-(1, '20260000042719982026000004271998', 1, 'hello', '2026-03-02 15:17:33', 'Unread', 'Read', 'Read'),
-(2, '20260000042719982026000004272044', 1, 'hello', '2026-03-02 15:17:42', 'Unread', 'Read', 'Read'),
-(3, '20260000042719982026000004272044', 1, 'hello', '2026-03-02 15:19:30', 'Unread', 'Read', 'Read'),
-(4, 'TOADMIN2026000004272044', 47, 'hello', '2026-03-02 15:20:28', 'Unread', 'Read', 'Read'),
-(5, 'TOADMIN2026000004271998', 1, 'hello', '2026-03-02 15:21:06', 'Unread', 'Read', 'Unread'),
-(6, '20260000042719982026000004272044', 1, 'hello', '2026-03-02 15:21:34', 'Unread', 'Read', 'Read'),
-(7, '20260000042719982026000004271998', 1, 'fdgfdhgfh', '2026-03-03 01:35:35', 'Unread', 'Read', 'Read'),
-(8, '20260000042719982026000004271998', 1, 'vbgcngfn', '2026-03-03 01:35:50', 'Unread', 'Read', 'Read'),
-(9, '20260000042719982026000004272044', 47, '1', '2026-03-03 03:03:06', 'Unread', 'Read', 'Read'),
-(10, '20260000042720442026000004272044', 47, 'fgfhgf', '2026-03-03 06:43:52', 'Unread', 'Read', 'Read');
+(1, '20260000042719982026000004272044', 1, 'sfshgfh', '2026-03-06 07:18:07', 'Unread', 'Read', 'Read'),
+(2, '20260000042719982026000004272044', 47, 'fgfh', '2026-03-06 07:18:22', 'Unread', 'Read', 'Read'),
+(3, '20260000042719982026000004272044', 47, 'dgdgfdg', '2026-03-06 07:18:30', 'Unread', 'Read', 'Read'),
+(4, 'TOADMIN2026000004272044', 47, 'gfdgfdgfgfg', '2026-03-06 07:18:55', 'Unread', 'Read', 'Read'),
+(5, 'TOADMIN2026000004272044', 47, 'fgfdgg', '2026-03-06 07:19:19', 'Unread', 'Read', 'Read'),
+(6, 'TOADMIN2026000004272044', 47, 'good pm', '2026-03-06 07:19:27', 'Unread', 'Read', 'Read'),
+(7, 'TOADMIN2026000004272044', 47, 'fgfgg', '2026-03-06 07:19:36', 'Unread', 'Read', 'Read'),
+(8, 'TOADMIN2026000004272044', 1, 'fdgfdgh', '2026-03-06 07:20:06', 'Unread', 'Read', 'Read'),
+(9, 'TOADMIN2026000004272044', 1, 'hello', '2026-03-06 07:20:17', 'Unread', 'Read', 'Read'),
+(10, 'TOADMIN2026000004272044', 1, 'hello', '2026-03-06 07:20:28', 'Unread', 'Read', 'Read'),
+(11, 'TOADMIN2026000004272044', 1, 'fgfdgfdg', '2026-03-06 07:21:18', 'Unread', 'Read', 'Read'),
+(12, 'TOADMIN2026000004272044', 1, 'hehehe', '2026-03-06 07:22:24', 'Unread', 'Read', 'Read'),
+(13, 'TOADMIN2026000004272044', 1, 'sgsgsgsgsg', '2026-03-06 07:30:36', 'Unread', 'Read', 'Read'),
+(14, 'TOADMIN2026000004272044', 1, 'sdfsdfdsf', '2026-03-06 07:31:03', 'Unread', 'Read', 'Read'),
+(15, 'TOADMIN2026000004272044', 1, 'fgg', '2026-03-06 07:33:08', 'Unread', 'Read', 'Read'),
+(16, '20260000042719982026000004272044', 1, 'gfdhh', '2026-03-06 07:38:17', 'Unread', 'Read', 'Read'),
+(17, 'TOADMIN2026000004271998', 1, 'dsgsgsgsdg', '2026-03-06 07:38:35', 'Unread', 'Read', 'Unread'),
+(18, 'TOADMIN2026000004272044', 1, 'dgfdf', '2026-03-06 07:40:07', 'Unread', 'Read', 'Read'),
+(19, 'TOADMIN2026000004271998', 1, 'fggsg', '2026-03-06 07:43:46', 'Unread', 'Read', 'Unread'),
+(20, 'TOADMIN2026000004272044', 1, 'yes', '2026-03-06 07:47:56', 'Unread', 'Read', 'Read'),
+(21, 'TOADMIN2026000004272044', 1, 'good pm', '2026-03-06 07:48:04', 'Unread', 'Read', 'Read'),
+(22, 'TOADMIN2026000004272044', 1, 'good day', '2026-03-06 07:52:25', 'Unread', 'Read', 'Read'),
+(23, 'TOADMIN2026000004272044', 47, 'hello', '2026-03-06 07:52:42', 'Unread', 'Read', 'Read'),
+(24, 'TOADMIN2026000004272044', 47, 'hello', '2026-03-06 07:52:56', 'Unread', 'Read', 'Read'),
+(25, 'TOADMIN2026000004272044', 1, 'good day', '2026-03-06 07:53:34', 'Unread', 'Read', 'Read'),
+(26, 'TOADMIN2026000004272044', 1, 'good pm', '2026-03-06 07:59:37', 'Unread', 'Read', 'Read'),
+(27, 'TOADMIN2026000004272044', 1, 'good pm', '2026-03-06 07:59:56', 'Unread', 'Read', 'Read'),
+(28, 'TOADMIN2026000004272044', 47, 'good pm', '2026-03-06 08:00:14', 'Unread', 'Read', 'Read'),
+(29, 'TOADMIN2026000004272044', 47, 'good pm', '2026-03-06 08:00:24', 'Unread', 'Read', 'Read'),
+(30, 'TOADMIN2026000004272044', 47, 'good pm', '2026-03-06 08:00:37', 'Unread', 'Read', 'Read'),
+(31, '20260000042719982026000004272044', 47, 'good pm', '2026-03-06 08:01:09', 'Unread', 'Read', 'Read'),
+(32, '20260000042719982026000004272044', 47, 'gfhfj', '2026-03-06 08:01:56', 'Unread', 'Read', 'Read'),
+(33, '20260000042719982026000004272044', 47, 'tykhk', '2026-03-06 08:02:18', 'Unread', 'Read', 'Read'),
+(34, 'TOADMIN2026000004272044', 47, 'ttjhghg', '2026-03-06 08:02:27', 'Unread', 'Read', 'Read'),
+(35, 'TOADMIN2026000004272044', 1, 'hello po', '2026-03-06 08:07:02', 'Unread', 'Read', 'Read'),
+(36, 'TOADMIN2026000004272044', 47, 'chfdhfdh', '2026-03-06 08:08:00', 'Unread', 'Read', 'Read'),
+(37, '20260000042719982026000004272044', 47, 'gfdgfdg', '2026-03-06 08:14:48', 'Unread', 'Read', 'Read'),
+(38, 'TOADMIN2026000004272044', 47, 'dfhdhgh', '2026-03-06 08:15:02', 'Unread', 'Read', 'Read'),
+(39, 'TOADMIN2026000004272044', 47, 'hjggh', '2026-03-06 08:16:01', 'Unread', 'Read', 'Read'),
+(40, '20260000042719982026000004272044', 1, 'fhgfhgfhgfh', '2026-03-06 08:16:30', 'Unread', 'Read', 'Read'),
+(41, 'TOADMIN2026000004272044', 1, 'hhhdh', '2026-03-06 08:16:44', 'Unread', 'Read', 'Read'),
+(42, 'TOADMIN2026000004272044', 47, 'gfhgfhgfh', '2026-03-06 08:17:39', 'Unread', 'Read', 'Read'),
+(43, 'TOADMIN2026000004272044', 47, 'sggsg', '2026-03-06 08:17:50', 'Unread', 'Read', 'Read'),
+(44, 'TOADMIN2026000004272044', 47, 'dsgfgfdhfdh', '2026-03-06 08:27:17', 'Unread', 'Read', 'Read'),
+(45, 'TOADMIN2026000004272044', 47, 'sfsg', '2026-03-06 08:28:09', 'Unread', 'Read', 'Read'),
+(46, 'TOADMIN2026000004272044', 47, 'kjjh', '2026-03-06 08:30:55', 'Unread', 'Read', 'Read'),
+(47, 'TOADMIN2026000004272044', 1, 'ngfgfhgfh', '2026-03-06 08:31:05', 'Unread', 'Read', 'Read'),
+(48, 'TOADMIN2026000004272044', 1, 'ggfgfh', '2026-03-06 08:31:13', 'Unread', 'Read', 'Read'),
+(49, 'TOADMIN2026000004272044', 1, 'hghghg', '2026-03-06 08:31:25', 'Unread', 'Read', 'Read'),
+(50, '20260000042719982026000004271998', 1, 'bcggj', '2026-03-06 08:33:12', 'Unread', 'Read', 'Read'),
+(51, '20260000042719982026000004272044', 47, 'xfchh', '2026-03-06 08:33:22', 'Unread', 'Read', 'Read'),
+(52, 'TOADMIN2026000004272044', 47, 'ghgffgj', '2026-03-06 08:35:40', 'Unread', 'Read', 'Read'),
+(53, 'TOADMIN2026000004272044', 47, 'fht', '2026-03-06 08:37:41', 'Unread', 'Read', 'Read'),
+(54, '20260000042719982026000004271998', 1, 'gfdhgfjgf', '2026-03-06 08:48:58', 'Unread', 'Read', 'Read'),
+(55, '20260000042719982026000004272044', 1, 'jgkhgkk', '2026-03-06 08:49:06', 'Unread', 'Read', 'Read'),
+(56, '20260000042719982026000004272044', 47, 'dsgfdgdh', '2026-03-06 08:57:49', 'Unread', 'Read', 'Read'),
+(57, '20260000042719982026000004272044', 47, 'sdfsddsgg', '2026-03-06 08:57:52', 'Unread', 'Read', 'Read'),
+(58, '20260000042719982026000004272044', 47, 'fdgfddh', '2026-03-06 08:57:57', 'Unread', 'Read', 'Read'),
+(59, '20260000042719982026000004272044', 47, 'xgfddyh', '2026-03-06 08:59:28', 'Unread', 'Read', 'Read'),
+(60, '20260000042719982026000004272044', 47, 'fdgfdgfg', '2026-03-06 09:01:37', 'Unread', 'Read', 'Read'),
+(61, '20260000042719982026000004272044', 1, 'trty', '2026-03-06 09:02:54', 'Unread', 'Read', 'Read'),
+(62, '20260000042719982026000004272044', 47, 'sfgsgg', '2026-03-06 09:03:07', 'Unread', 'Read', 'Read'),
+(63, '20260000042719982026000004272044', 47, 'sdrdgy', '2026-03-06 09:03:15', 'Unread', 'Read', 'Read'),
+(64, '20260000042720442026000004272044', 47, 'rvfbfb', '2026-03-06 09:50:06', 'Unread', 'Read', 'Read'),
+(65, '20260000042719982026000004272044', 47, 'jjghkg', '2026-03-06 09:50:11', 'Unread', 'Read', 'Read'),
+(66, 'TOADMIN2026000004272044', 1, 'iyoyo', '2026-03-06 10:03:20', 'Unread', 'Read', 'Read'),
+(67, '20260000042719982026000004271998', 1, 'sddg', '2026-03-06 10:06:29', 'Unread', 'Read', 'Read'),
+(68, '20260000042719982026000004271998', 1, 'dsgdghh', '2026-03-06 10:08:13', 'Unread', 'Read', 'Read'),
+(69, '20260000042719982026000004272044', 1, 'dsdsfff', '2026-03-06 10:08:27', 'Unread', 'Read', 'Read'),
+(70, '20260000042719982026000004272044', 1, 'hfthtf', '2026-03-06 12:36:10', 'Unread', 'Read', 'Read'),
+(71, '20260000042719982026000004272044', 1, 'cgdg', '2026-03-10 09:00:00', 'Unread', 'Read', 'Read'),
+(72, '20260000042719982026000004271998', 1, 'ngjgj', '2026-03-12 04:46:40', 'Unread', 'Read', 'Read'),
+(73, '20260000042719982026000004272044', 1, 'fgfhhhh', '2026-03-12 06:04:56', 'Unread', 'Read', 'Read'),
+(74, '20260000042719982026000004272044', 1, 'gfgjgf', '2026-03-12 06:05:32', 'Unread', 'Read', 'Read'),
+(75, '20260000042719982026000004272044', 1, 'bkhk', '2026-03-12 06:06:11', 'Unread', 'Read', 'Read'),
+(76, '20260000042719982026000004272044', 1, 'gfdhdh', '2026-03-12 06:07:53', 'Unread', 'Read', 'Read'),
+(77, '20260000042719982026000004272044', 1, 'dfgfdgf', '2026-03-12 06:08:29', 'Unread', 'Read', 'Read'),
+(78, 'TOADMIN2026000004272044', 47, 'fdgfdgfdg', '2026-03-12 06:08:39', 'Unread', 'Read', 'Read'),
+(79, '20260000042719982026000004272044', 1, 'gfdgh', '2026-03-12 06:10:07', 'Unread', 'Read', 'Read'),
+(80, '20260000042719982026000004272044', 1, 'sgfdgdh', '2026-03-13 05:15:29', 'Unread', 'Read', 'Read'),
+(81, '20260000042719982026000004272044', 47, 'cbgcnnvnvmvmbvmbvmvm', '2026-03-13 05:16:27', 'Unread', 'Read', 'Read'),
+(82, '20260000042719982026000004271998', 1, 'rgdtyfjfj', '2026-03-15 09:33:24', 'Unread', 'Read', 'Read'),
+(83, '20260000042719982026000004272044', 1, 'good pm', '2026-03-18 06:42:03', 'Unread', 'Read', 'Read'),
+(84, '20260000042719982026000004272044', 1, 'gfdhgfh', '2026-03-20 09:58:29', 'Unread', 'Read', 'Read'),
+(85, '20260000042719982026000004272044', 1, 'fdhfghj', '2026-03-20 09:58:37', 'Unread', 'Read', 'Read'),
+(86, '20260000042719982026000004272006', 1, 'vcbghhhhhhhhh', '2026-03-20 10:00:00', 'Unread', 'Read', 'Unread'),
+(87, '20260000042719982026000004271998', 1, 'rrrrrr', '2026-03-21 02:47:48', 'Unread', 'Read', 'Read'),
+(88, '20260000042719982026000004272006', 1, 'hello', '2026-03-22 05:30:29', 'Unread', 'Read', 'Unread'),
+(89, 'TOADMIN2026000004272044', 1, 'hhj', '2026-03-24 10:00:52', 'Unread', 'Read', 'Unread');
 
 -- --------------------------------------------------------
 
@@ -1875,9 +1985,8 @@ CREATE TABLE `updates` (
 --
 
 INSERT INTO `updates` (`updateId`, `updateType`, `updateTitle`, `updateStatus`, `updateTimestamp`, `updateRegistrantId`, `updateViewers`, `updateContent`, `updateSlug`, `updatePubDate`, `updateUpdateDate`) VALUES
-(3, 'Subscription', 'Scheduled Maintenance', 'Unpublished', '2026-02-25 14:28:17', 1, '', 'Maintenance is the process of keeping equipment, machinery, buildings, or systems in good working condition through regular cleaning, repair, and inspection to prevent failure. It ensures operational efficiency, safety, and longevity, and can also refer to financial support or the act of keeping a situation stable.', 'scheduled+maintenance', '2026-02-25 22:35:59', '2026-03-01 10:37:39'),
-(15, 'Subscription', 'Scheduled Maintenance_copy', 'Draft', '2026-03-03 04:20:26', 1, '', 'Maintenance is the process of keeping equipment, machinery, buildings, or systems in good working condition through regular cleaning, repair, and inspection to prevent failure. It ensures operational efficiency, safety, and longevity, and can also refer to financial support or the act of keeping a situation stable.', 'scheduled+maintenance+copy', '0000-00-00 00:00:00', '2026-03-03 12:20:26'),
-(16, 'Subscription', 'Scheduled Maintenance_copy_copy', 'Published', '2026-03-03 04:22:32', 1, '2026000004272044, 2026000004272044, 2026000004272044, 2026000004272044, 2026000004271998', 'Maintenance is the process of keeping equipment, machinery, buildings, or systems in good working condition through regular cleaning, repair, and inspection to prevent failure. It ensures operational efficiency, safety, and longevity, and can also refer to financial support or the act of keeping a situation stable.', 'scheduled+maintenance+copy+copy', '2026-03-03 12:22:50', '2026-03-03 14:39:51');
+(3, 'Subscription', 'Scheduled Maintenance', 'Published', '2026-02-25 14:28:17', 1, '2026000004272044, 2026000004271998', 'Maintenance is the process of keeping equipment, machinery, buildings, or systems in good working condition through regular cleaning, repair, and inspection to prevent failure. It ensures operational efficiency, safety, and longevity, and can also refer to financial support or the act of keeping a situation stable.', 'scheduled+maintenance', '2026-02-25 22:35:59', '2026-03-23 09:58:51'),
+(26, 'Subscription', 'Scheduled Maintenance_copy', 'Unpublished', '2026-03-27 15:32:49', 1, '2026000004271998', 'Maintenance is the process of keeping equipment, machinery, buildings, or systems in good working condition through regular cleaning, repair, and inspection to prevent failure. It ensures operational efficiency, safety, and longevity, and can also refer to financial support or the act of keeping a situation stable.', 'scheduled+maintenance+copy', '2026-03-27 23:32:55', '2026-03-27 23:33:04');
 
 -- --------------------------------------------------------
 
@@ -1905,7 +2014,8 @@ INSERT INTO `website_manager_accounts` (`website_manager_accountId`, `website_ma
 (4, 40, '', '', '', '', ''),
 (5, 18, '', '', '', '', ''),
 (6, 16, '', '', '', '', ''),
-(7, 47, '', '', '', '', '');
+(7, 47, '', '', '', '', ''),
+(8, 9, '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -2104,13 +2214,13 @@ ALTER TABLE `admin_messages`
 -- AUTO_INCREMENT for table `contents`
 --
 ALTER TABLE `contents`
-  MODIFY `contentId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `contentId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `content_categories`
 --
 ALTER TABLE `content_categories`
-  MODIFY `content_categoryId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `content_categoryId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `content_comments`
@@ -2122,13 +2232,13 @@ ALTER TABLE `content_comments`
 -- AUTO_INCREMENT for table `content_performance`
 --
 ALTER TABLE `content_performance`
-  MODIFY `content_viewId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `content_viewId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `content_purchase`
 --
 ALTER TABLE `content_purchase`
-  MODIFY `content_purchaseId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `content_purchaseId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `content_tags`
@@ -2140,7 +2250,7 @@ ALTER TABLE `content_tags`
 -- AUTO_INCREMENT for table `content_versions`
 --
 ALTER TABLE `content_versions`
-  MODIFY `content_versionId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
+  MODIFY `content_versionId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
 
 --
 -- AUTO_INCREMENT for table `developer_tools`
@@ -2152,7 +2262,7 @@ ALTER TABLE `developer_tools`
 -- AUTO_INCREMENT for table `developer_tool_files`
 --
 ALTER TABLE `developer_tool_files`
-  MODIFY `developer_tool_fileId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `developer_tool_fileId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `editor_edits`
@@ -2170,7 +2280,7 @@ ALTER TABLE `from_no_admin_users_messages`
 -- AUTO_INCREMENT for table `message_threads`
 --
 ALTER TABLE `message_threads`
-  MODIFY `message_threadId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `message_threadId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `other_registrations`
@@ -2182,19 +2292,19 @@ ALTER TABLE `other_registrations`
 -- AUTO_INCREMENT for table `promotions`
 --
 ALTER TABLE `promotions`
-  MODIFY `promotionId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `promotionId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `registrant_activities`
 --
 ALTER TABLE `registrant_activities`
-  MODIFY `registrant_activityId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1155;
+  MODIFY `registrant_activityId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1217;
 
 --
 -- AUTO_INCREMENT for table `registrant_subscriptions`
 --
 ALTER TABLE `registrant_subscriptions`
-  MODIFY `registrant_subscriptionId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `registrant_subscriptionId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `registrations`
@@ -2212,31 +2322,31 @@ ALTER TABLE `school_researches`
 -- AUTO_INCREMENT for table `teacher_files`
 --
 ALTER TABLE `teacher_files`
-  MODIFY `teacher_fileId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
+  MODIFY `teacher_fileId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
 
 --
 -- AUTO_INCREMENT for table `thread_messages`
 --
 ALTER TABLE `thread_messages`
-  MODIFY `thread_messageId` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `thread_messageId` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
 
 --
 -- AUTO_INCREMENT for table `updates`
 --
 ALTER TABLE `updates`
-  MODIFY `updateId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `updateId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `website_manager_accounts`
 --
 ALTER TABLE `website_manager_accounts`
-  MODIFY `website_manager_accountId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `website_manager_accountId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `writer_articles`
 --
 ALTER TABLE `writer_articles`
-  MODIFY `writer_articleId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=144;
+  MODIFY `writer_articleId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=145;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
