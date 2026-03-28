@@ -6,6 +6,11 @@
   },
   "routes": [
     {
+      "src": "/articles",
+      "dest": "/api/articles.php"
+    },
+
+    {
       "src": "/(.*)",
       "dest": "/api/index.php"
     }
