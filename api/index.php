@@ -6,6 +6,6 @@
     <title>Non Framework</title>
   </head>
   <body>
-    <h1>Hello World!</h1>
+    <h1>Hello World! <?php echo 'Form PHP';?></h1>
   </body>
 </html>
