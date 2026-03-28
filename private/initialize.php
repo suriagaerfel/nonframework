@@ -36,9 +36,13 @@ if(str_contains($domain,'localhost')){
   $currentURL = $_SERVER['REQUEST_URI']; 
   
   
- 
-
+if(str_contains($domain,'localhost')){
   require ('database.php'); 
+}
+
+
+
+  
 
 $loggedIn = isset($_SESSION['id']) ? true : false; 
 $registrantId= isset($_SESSION['id']) ? $_SESSION['id'] : ''; 
